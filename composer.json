@@ -1,5 +1,30 @@
 {
+    "name": "llanteria/backend",
+    "description": "API REST en Laravel",
     "require": {
+        "php": "^8.2",
+        "laravel/framework": "^11.0",
         "laravel/sanctum": "^4.2"
-    }
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": [
+            "app/helpers.php"
+        ]
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }
